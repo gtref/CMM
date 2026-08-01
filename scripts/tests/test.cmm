@@ -1,0 +1,13 @@
+main() {
+    bits32 x = 0;
+
+start:
+    x = x + 1;
+    foreign "C" printf(x);
+
+    if (x < 6) {
+        goto start;
+    }
+
+    return 0;
+}
