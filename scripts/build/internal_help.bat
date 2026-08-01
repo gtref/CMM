@@ -7,5 +7,6 @@ echo   build release
 echo   build vm
 echo   build native
 echo   build clean
+echo   build doctor
 echo   build help
 echo   build version

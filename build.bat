@@ -13,6 +13,11 @@ if "%~1"=="version" (
     exit /b 0
 )
 
+if "%~1"=="doctor" (
+    call scripts\build\doctor.bat
+    exit /b %ERRORLEVEL%
+)
+
 REM Everything else goes to the real build system
 call scripts\build\build_all.bat %*
 
