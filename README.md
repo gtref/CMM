@@ -134,7 +134,7 @@ To see all build options, run:
 .\build help
 ```
 
-This will show you the full help menu, including the cursed ASCII logo and whatever other questionable features I’ve duct‑taped into the build system.
+This will show you the full help menu that also includes whatever other questionable features I’ve duct‑taped into the build system.
 
 Once you find the option you want, run it.
 If it works, great.
