@@ -123,7 +123,21 @@ static int parse_cli_with_library(int argc, char **argv) {
 
 int main(int argc, char **argv) {
     if (argc < 2) {
-        printf("Usage: cmmc.exe <input.cmm> [-o output.exe]\n");
+        printf(
+" ██████╗ ███╗   ███╗███╗   ███╗ ██████╗\n"
+"██╔═══██╗████╗ ████║████╗ ████║██╔═══██╗\n"
+"██║   ██║██╔████╔██║██╔████╔██║██║   ██║\n"
+"██║   ██║██║╚██╔╝██║██║╚██╔╝██║██║   ██║\n"
+"╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║╚██████╔╝\n"
+" ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝ ╚═════╝\n"
+"\n"
+"      > CMMC v0.0.1-pre-alpha\n"
+"      > A compiler held together with caffeine\n"
+"      > Memory safety sold separately\n"
+"\n"
+"Usage: cmmc.exe <input.cmm> [-o output.exe]\n"
+);
+
         return 1;
     }
 
