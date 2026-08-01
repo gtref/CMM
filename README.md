@@ -85,6 +85,7 @@ bits32 main() {
 - Memory safety is a myth.
 - The language specification changes depending on my mood.
 - The compiler sometimes works better when you don’t look at it.
+- Windows + Zig is required because I made choices and now you must live with them.
 
 ---
 
@@ -109,9 +110,13 @@ bits32 main() {
  ### Q:  Should I use this in production?  
  A: Only if you hate your coworkers.
 
+ ### Q: Will this ever be stable?
+ A: Define "stable"?
+
  ---
 
  # 🐀 Mascot (CMMC the Cursed Possum)
  He lives in your stack.
  He eats your pointers.
  He judges your code.
+ He knows what you did in main().
