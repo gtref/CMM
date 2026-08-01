@@ -139,3 +139,12 @@ This will show you the full help menu that also includes whatever other question
 Once you find the option you want, run it.
 If it works, great.
 If it doesn’t, that’s a feature.
+
+---
+
+## Third-Party Software
+
+This repository includes `libtcc.dll` from the **Tiny C Compiler (TCC)** project by Fabrice Bellard and contributors.
+
+* **License:** GNU Lesser General Public License v2.1 (see `LICENSE.LGPL` or `NOTICE` for details)
+* **Source Code:** You can obtain the original TCC source code at [repo.or.cz/tinycc.git](https://repo.or.cz/tinycc.git).
