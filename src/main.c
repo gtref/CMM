@@ -122,6 +122,8 @@ static int parse_cli_with_library(int argc, char **argv) {
 }
 
 int main(int argc, char **argv) {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     if (argc < 2) {
         printf(
 " ██████╗ ███╗   ███╗███╗   ███╗ ██████╗\n"
