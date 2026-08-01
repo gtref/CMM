@@ -1,4 +1,4 @@
-# CMMC (The new C-- compiler)
+# CMMC (The new C-- compiler) (NEEDS WINDOWS AND ZIG INSTALLED)
 ---
 
 Oh. You actually opened this.
