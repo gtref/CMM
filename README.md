@@ -92,6 +92,7 @@ bits32 main() {
 # 🛠 Roadmap (If I Don’t Give Up)
 
  - A real library.
+ - Make the VM not a hello, world script.
  - a optimiser that is not nothing.
  - a backend that not libtcc.
  - a reason for this insanity.
@@ -120,3 +121,9 @@ bits32 main() {
  He eats your pointers.
  He judges your code.
  He knows what you did in main().
+
+ ---
+
+ # Building
+
+ Well, type `.\build help` for the help options. Then use the option you want.
