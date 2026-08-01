@@ -124,6 +124,18 @@ bits32 main() {
 
  ---
 
- # Building
+# 🏗️ Building
 
- Well, type `.\build help` for the help options. Then use the option you want.
+CMMC requires Windows and Zig because I made choices and now you must live with them.
+
+To see all build options, run:
+
+```bash
+.\build help
+```
+
+This will show you the full help menu, including the cursed ASCII logo and whatever other questionable features I’ve duct‑taped into the build system.
+
+Once you find the option you want, run it.
+If it works, great.
+If it doesn’t, that’s a feature.
