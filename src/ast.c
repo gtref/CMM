@@ -1,11 +1,14 @@
 #include "ast.h"
 
+extern int current_line;
 static int node_id_counter = 1;
 
 ASTNode* create_node(NodeType type) {
     ASTNode *node = (ASTNode*)calloc(1, sizeof(ASTNode));
     node->id = node_id_counter++;
     node->type = type;
+    node->line = current_line;
+    node->inferred_type = TYPE_UNKNOWN;
     return node;
 }
 
@@ -23,7 +26,7 @@ ASTNode* create_func_node(const char *name, ASTNode *body) {
     return node;
 }
 
-ASTNode* create_var_decl_node(TokenKind var_type, const char *name, ASTNode *init) {
+ASTNode* create_var_decl_node(TypeKind var_type, const char *name, ASTNode *init) {
     ASTNode *node = create_node(NODE_VAR_DECL);
     node->var_decl.var_type = var_type;
     snprintf(node->var_decl.name, sizeof(node->var_decl.name), "%s", name);
@@ -120,4 +123,14 @@ const char* token_type_to_string(TokenKind type) {
         "ERROR", "EOF"
     };
     return names[type];
+}
+
+const char* type_kind_to_string(TypeKind type) {
+    switch (type) {
+        case TYPE_BITS8: return "bits8";
+        case TYPE_BITS16: return "bits16";
+        case TYPE_BITS32: return "bits32";
+        case TYPE_BITS64: return "bits64";
+        default: return "unknown";
+    }
 }

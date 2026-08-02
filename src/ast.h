@@ -10,6 +10,14 @@
 typedef int TokenKind;
 
 typedef enum {
+    TYPE_UNKNOWN,
+    TYPE_BITS8,
+    TYPE_BITS16,
+    TYPE_BITS32,
+    TYPE_BITS64,
+} TypeKind;
+
+typedef enum {
     NODE_PROGRAM,
     NODE_LIST,
     NODE_FUNCTION,
@@ -29,7 +37,9 @@ typedef enum {
 
 typedef struct ASTNode {
     int id;
+    int line;
     NodeType type;
+    TypeKind inferred_type;
     union {
         // Linked list node for statement and declaration lists
         struct {
@@ -46,7 +56,7 @@ typedef struct ASTNode {
         // Variable Declaration: bits32 $var = expr;
         struct {
             char name[64];
-            TokenKind var_type;
+            TypeKind var_type;
             struct ASTNode *initializer;
         } var_decl;
 
@@ -113,7 +123,7 @@ typedef struct ASTNode {
 ASTNode* create_node(NodeType type);
 ASTNode* create_list_node(ASTNode *head, ASTNode *next);
 ASTNode* create_func_node(const char *name, ASTNode *body);
-ASTNode* create_var_decl_node(TokenKind var_type, const char *name, ASTNode *init);
+ASTNode* create_var_decl_node(TypeKind var_type, const char *name, ASTNode *init);
 ASTNode* create_assign_node(const char *name, ASTNode *val);
 ASTNode* create_if_node(ASTNode *cond, ASTNode *then_b, ASTNode *else_b);
 ASTNode* create_goto_node(const char *label);
@@ -127,5 +137,6 @@ ASTNode* create_export_node(const char *symbol);
 ASTNode* create_import_node(const char *symbol);
 
 const char* token_type_to_string(TokenKind type);
+const char* type_kind_to_string(TypeKind type);
 
 #endif

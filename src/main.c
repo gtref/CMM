@@ -6,6 +6,7 @@
 #include "ast.h"
 #include "codegen.h"
 #include "parser.tab.h"
+#include "semantic.h"
 #include "executable_formats/exec.h"
 
 extern ASTNode *root;
@@ -192,6 +193,12 @@ int main(int argc, char **argv) {
         return 1;
     }
     fclose(yyin);
+
+    if (!semantic_check(root)) {
+        fprintf(stderr, "Compilation failed due to semantic errors.\n");
+        g_args_free();
+        return 1;
+    }
 
     FILE *asm_out = fopen("temp_out.s", "w");
     if (!asm_out) {

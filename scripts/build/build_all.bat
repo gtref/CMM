@@ -68,6 +68,7 @@ if "%MODE%"=="native" (
         src\main.c ^
         src\ast.c ^
         src\codegen.c ^
+        src\semantic.c ^
         src\parser.tab.c ^
         src\lexer.yy.c ^
         src\executable_formats\exec.c ^

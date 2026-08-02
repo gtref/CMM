@@ -89,6 +89,6 @@ int current_line = 1;
 "^"                     { return TOK_CARET; }
 "~"                     { return TOK_TILDE; }
 
-.                       { return TOK_ERROR; }
+.                       { fprintf(stderr, "Lexical Error on line %d: invalid token '%s'\n", current_line, yytext); return TOK_ERROR; }
 
 %%

@@ -1382,25 +1382,25 @@ yyreduce:
 
   case 24: /* type_specifier: TOK_BITS8  */
 #line 129 "src\\parser.y"
-                { (yyval.token_kind) = TOK_BITS8; }
+                { (yyval.token_kind) = TYPE_BITS8; }
 #line 1387 "src\\parser.tab.c"
     break;
 
   case 25: /* type_specifier: TOK_BITS16  */
 #line 130 "src\\parser.y"
-                { (yyval.token_kind) = TOK_BITS16; }
+                { (yyval.token_kind) = TYPE_BITS16; }
 #line 1393 "src\\parser.tab.c"
     break;
 
   case 26: /* type_specifier: TOK_BITS32  */
 #line 131 "src\\parser.y"
-                { (yyval.token_kind) = TOK_BITS32; }
+                { (yyval.token_kind) = TYPE_BITS32; }
 #line 1399 "src\\parser.tab.c"
     break;
 
   case 27: /* type_specifier: TOK_BITS64  */
 #line 132 "src\\parser.y"
-                { (yyval.token_kind) = TOK_BITS64; }
+                { (yyval.token_kind) = TYPE_BITS64; }
 #line 1405 "src\\parser.tab.c"
     break;
 

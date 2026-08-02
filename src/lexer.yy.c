@@ -1185,7 +1185,7 @@ YY_RULE_SETUP
 case 66:
 YY_RULE_SETUP
 #line 92 "src\\lexer.l"
-{ return TOK_ERROR; }
+{ fprintf(stderr, "Lexical Error on line %d: invalid token '%s'\n", current_line, yytext); return TOK_ERROR; }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP

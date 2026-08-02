@@ -126,10 +126,10 @@ var_decl:
   ;
 
 type_specifier:
-    TOK_BITS8   { $$ = TOK_BITS8; }
-  | TOK_BITS16  { $$ = TOK_BITS16; }
-  | TOK_BITS32  { $$ = TOK_BITS32; }
-  | TOK_BITS64  { $$ = TOK_BITS64; }
+    TOK_BITS8   { $$ = TYPE_BITS8; }
+  | TOK_BITS16  { $$ = TYPE_BITS16; }
+  | TOK_BITS32  { $$ = TYPE_BITS32; }
+  | TOK_BITS64  { $$ = TYPE_BITS64; }
   ;
 
 expr:
