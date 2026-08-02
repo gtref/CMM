@@ -130,6 +130,12 @@ type_specifier:
   | TOK_BITS16  { $$ = TYPE_BITS16; }
   | TOK_BITS32  { $$ = TYPE_BITS32; }
   | TOK_BITS64  { $$ = TYPE_BITS64; }
+  | TOK_WORD1   { $$ = TYPE_WORD1; }
+  | TOK_WORD2   { $$ = TYPE_WORD2; }
+  | TOK_WORD4   { $$ = TYPE_WORD4; }
+  | TOK_WORD8   { $$ = TYPE_WORD8; }
+  | TOK_FLOAT4  { $$ = TYPE_FLOAT4; }
+  | TOK_FLOAT8  { $$ = TYPE_FLOAT8; }
   ;
 
 expr:
@@ -146,6 +152,7 @@ expr:
 
 primary:
     TOK_NUMBER                              { $$ = create_int_node($1); }
+  | TOK_FLOAT_LITERAL                       { $$ = create_float_node($1); }
   | TOK_IDENTIFIER                          { $$ = create_var_ref_node($1); free($1); }
   | TOK_LPAREN expr TOK_RPAREN              { $$ = $2; }
   ;

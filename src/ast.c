@@ -86,6 +86,14 @@ ASTNode* create_binary_node(TokenKind op, ASTNode *left, ASTNode *right) {
 ASTNode* create_int_node(int value) {
     ASTNode *node = create_node(NODE_INT_LITERAL);
     node->int_literal.value = value;
+    node->inferred_type = TYPE_BITS32;
+    return node;
+}
+
+ASTNode* create_float_node(double value) {
+    ASTNode *node = create_node(NODE_FLOAT_LITERAL);
+    node->float_literal.value = value;
+    node->inferred_type = TYPE_FLOAT8;
     return node;
 }
 
@@ -131,6 +139,12 @@ const char* type_kind_to_string(TypeKind type) {
         case TYPE_BITS16: return "bits16";
         case TYPE_BITS32: return "bits32";
         case TYPE_BITS64: return "bits64";
+        case TYPE_WORD1: return "word1";
+        case TYPE_WORD2: return "word2";
+        case TYPE_WORD4: return "word4";
+        case TYPE_WORD8: return "word8";
+        case TYPE_FLOAT4: return "float4";
+        case TYPE_FLOAT8: return "float8";
         default: return "unknown";
     }
 }

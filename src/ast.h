@@ -15,6 +15,12 @@ typedef enum {
     TYPE_BITS16,
     TYPE_BITS32,
     TYPE_BITS64,
+    TYPE_WORD1,
+    TYPE_WORD2,
+    TYPE_WORD4,
+    TYPE_WORD8,
+    TYPE_FLOAT4,
+    TYPE_FLOAT8,
 } TypeKind;
 
 typedef enum {
@@ -29,6 +35,7 @@ typedef enum {
     NODE_RETURN,
     NODE_FOREIGN_CALL,
     NODE_INT_LITERAL,
+    NODE_FLOAT_LITERAL,
     NODE_VAR_REF,
     NODE_BINARY_EXPR,
     NODE_EXPORT,
@@ -100,6 +107,11 @@ typedef struct ASTNode {
             int value;
         } int_literal;
 
+        // Floating Literal
+        struct {
+            double value;
+        } float_literal;
+
         // Variable Reference
         struct {
             char name[64];
@@ -126,6 +138,7 @@ ASTNode* create_func_node(const char *name, ASTNode *body);
 ASTNode* create_var_decl_node(TypeKind var_type, const char *name, ASTNode *init);
 ASTNode* create_assign_node(const char *name, ASTNode *val);
 ASTNode* create_if_node(ASTNode *cond, ASTNode *then_b, ASTNode *else_b);
+ASTNode* create_float_node(double value);
 ASTNode* create_goto_node(const char *label);
 ASTNode* create_label_node(const char *name);
 ASTNode* create_return_node(ASTNode *expr);

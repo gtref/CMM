@@ -1,0 +1,9 @@
+main() {
+    bits32 x = 0;
+    bits8 y = 1;
+
+    x = y;        // type mismatch: bits8 -> bits32
+    y = x;        // type mismatch: bits32 -> bits8
+
+    return 0;
+}
