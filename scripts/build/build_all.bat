@@ -19,7 +19,7 @@ if "%~1"=="install" (
         echo Build directory does not exist. Please build first.
         exit /b 1
     )
-    pathadd C:\Users\ronan\L1_DIGITAL_TECH\C\work\better_C--\build
+    .\pathadd ..\..\build
     exit /b 0
 )
 
