@@ -3,11 +3,11 @@ main() {
 
 start:
     x = x + 1;
-    foreign "C" printf(x);
 
-    if (x < 6) {
+    if (x < 100) {
         goto start;
     }
+    foreign "C" printf(x);
 
     return 0;
 }

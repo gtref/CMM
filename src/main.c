@@ -207,6 +207,7 @@ int main(int argc, char **argv) {
 
     if (res == 0) {
         printf("Successfully built: %s\n", output_exe);
+        remove("temp_out.s");
     } else {
         fprintf(stderr, "Linking failed.\n");
         g_args_free();
