@@ -1,4 +1,4 @@
-# CMMC (The new C-- compiler) (NEEDS WINDOWS AND ZIG INSTALLED)
+# CMMC — The C-- descendant that escaped containment. Requires Windows. Demands Zig.
 ---
 
 Oh. You actually opened this.
