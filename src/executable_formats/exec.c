@@ -84,7 +84,7 @@ int build_executable(const char *asm_path, const char *output_exe) {
 
     char command[512];
     snprintf(command, sizeof(command),
-        "C:\\Users\\ronan\\mingw64\\bin\\gcc %s -o %s",
+        "gcc %s -o %s",
         obj_path, output_exe);
 
     return system(command);
