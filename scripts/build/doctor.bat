@@ -6,33 +6,51 @@ echo.
 
 set "missing=0"
 
-where bison.exe >nul 2>nul
-if errorlevel 1 (
-    echo [FAIL] bison.exe not found in PATH.
-    set "missing=1"
+if exist tools\bison.exe (
+    echo [OK] bison found locally at tools\bison.exe.
+) else if exist bin\bison.exe (
+    echo [OK] bison found locally at bin\bison.exe.
 ) else (
-    echo [OK] bison.exe found.
-)
-
-where flex.exe >nul 2>nul
-if errorlevel 1 (
-    echo [FAIL] flex.exe not found in PATH.
-    set "missing=1"
-) else (
-    echo [OK] flex.exe found.
-)
-
-where zig.exe >nul 2>nul
-if errorlevel 1 (
-    where zig >nul 2>nul
+    where bison.exe >nul 2>nul
     if errorlevel 1 (
-        echo [FAIL] zig not found in PATH.
+        echo [FAIL] bison.exe not found locally or in PATH.
         set "missing=1"
     ) else (
-        echo [OK] zig found.
+        echo [OK] bison.exe found in PATH.
     )
+)
+
+if exist tools\flex.exe (
+    echo [OK] flex found locally at tools\flex.exe.
+) else if exist bin\flex.exe (
+    echo [OK] flex found locally at bin\flex.exe.
 ) else (
-    echo [OK] zig found.
+    where flex.exe >nul 2>nul
+    if errorlevel 1 (
+        echo [FAIL] flex.exe not found locally or in PATH.
+        set "missing=1"
+    ) else (
+        echo [OK] flex.exe found in PATH.
+    )
+)
+
+if exist tools\zig.exe (
+    echo [OK] zig found locally at tools\zig.exe.
+) else if exist bin\zig.exe (
+    echo [OK] zig found locally at bin\zig.exe.
+) else (
+    where zig.exe >nul 2>nul
+    if errorlevel 1 (
+        where zig >nul 2>nul
+        if errorlevel 1 (
+            echo [FAIL] zig not found locally or in PATH.
+            set "missing=1"
+        ) else (
+            echo [OK] zig found in PATH.
+        )
+    ) else (
+        echo [OK] zig found in PATH.
+    )
 )
 
 echo.

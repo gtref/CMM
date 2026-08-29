@@ -4,6 +4,20 @@ setlocal
 REM Load flags
 call scripts\build\config.bat %1
 
+REM Set local tool overrides if present
+set "BISON_BIN=bison"
+set "FLEX_BIN=flex"
+set "ZIG_BIN=zig"
+
+if exist tools\bison.exe set "BISON_BIN=tools\bison.exe"
+if exist bin\bison.exe set "BISON_BIN=bin\bison.exe"
+
+if exist tools\flex.exe set "FLEX_BIN=tools\flex.exe"
+if exist bin\flex.exe set "FLEX_BIN=bin\flex.exe"
+
+if exist tools\zig.exe set "ZIG_BIN=tools\zig.exe"
+if exist bin\zig.exe set "ZIG_BIN=bin\zig.exe"
+
 if "%~1"=="clean" (
     echo Cleaning build...
     if exist build\* del /q build\*
@@ -52,19 +66,19 @@ if not exist build\args.dll (
 
 echo.
 echo --- Running Bison ---
-bison -d -o src\parser.tab.c src\parser.y
+%BISON_BIN% -d -o src\parser.tab.c src\parser.y
 if errorlevel 1 exit /b 1
 
 echo.
 echo --- Running Flex ---
-flex -o src\lexer.yy.c src\lexer.l
+%FLEX_BIN% -o src\lexer.yy.c src\lexer.l
 if errorlevel 1 exit /b 1
 
 echo.
 echo --- Compiling with zig cc ---
 
 if "%MODE%"=="native" (
-    zig cc %CFLAGS% ^
+    %ZIG_BIN% cc %CFLAGS% ^
         src\main.c ^
         src\ast.c ^
         src\codegen.c ^
@@ -76,7 +90,7 @@ if "%MODE%"=="native" (
 )
 
 if "%MODE%"=="vm" (
-    zig cc %CFLAGS% ^
+    %ZIG_BIN% cc %CFLAGS% ^
         src\main.c ^
         src\ast.c ^
         src\vm.c ^
