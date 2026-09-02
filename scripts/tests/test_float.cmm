@@ -1,0 +1,7 @@
+main() {
+    float8 x = 3.5;
+    float8 y = 2.5;
+    float8 z = x + y;
+    foreign "C" printf(z);
+    return 0;
+}

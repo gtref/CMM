@@ -82,10 +82,21 @@ int build_executable(const char *asm_path, const char *output_exe) {
 
     g_tcc_delete(s);
 
+    const char *linker_bin = "gcc";
+    if (GetFileAttributesA("tools\\gcc.exe") != INVALID_FILE_ATTRIBUTES) {
+        linker_bin = "tools\\gcc.exe";
+    } else if (GetFileAttributesA("bin\\gcc.exe") != INVALID_FILE_ATTRIBUTES) {
+        linker_bin = "bin\\gcc.exe";
+    } else if (GetFileAttributesA("tools\\zig.exe") != INVALID_FILE_ATTRIBUTES) {
+        linker_bin = "tools\\zig.exe cc";
+    } else if (GetFileAttributesA("bin\\zig.exe") != INVALID_FILE_ATTRIBUTES) {
+        linker_bin = "bin\\zig.exe cc";
+    }
+
     char command[512];
     snprintf(command, sizeof(command),
-        "C:\\Users\\ronan\\mingw64\\bin\\gcc %s -o %s",
-        obj_path, output_exe);
+        "%s %s -o %s",
+        linker_bin, obj_path, output_exe);
 
     return system(command);
 }

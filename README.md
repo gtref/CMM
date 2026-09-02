@@ -126,12 +126,20 @@ bits32 main() {
 
 # 🏗️ Building
 
-CMMC requires Windows and Zig because I made choices and now you must live with them.
+CMMC requires Windows and Zig (plus Bison and Flex) to build.
+
+Build tools can either be installed system-wide in `PATH` or placed locally in the repository root under `tools\` (or `bin\`) for portable builds.
 
 To see all build options, run:
 
 ```bash
 .\build help
+```
+
+To verify tool resolution (local or system PATH):
+
+```bash
+.\build doctor
 ```
 
 This will show you the full help menu that also includes whatever other questionable features I’ve duct‑taped into the build system.

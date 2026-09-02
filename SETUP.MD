@@ -1,7 +1,16 @@
 ## 📥 Installing Requirements
 
 CMMC needs three external tools to build: **Bison**, **Flex**, and **Zig**.  
-Here’s how to install them on Windows.
+You can either place the binaries locally in your workspace (`.\tools\` or `.\bin\`) or install them system-wide on Windows.
+
+---
+
+## 🛠 Local Workspace Tooling (Recommended)
+
+If you prefer non-system-wide installs or portable setups:
+1. Create a `tools\` (or `bin\`) folder in the repository root.
+2. Place `bison.exe`, `flex.exe`, and/or `zig.exe` directly inside `.\tools\` (or `.\bin\`).
+3. The build system scripts (`build.bat`, `scripts\build\build_all.bat`) and `cmmc.exe` linker stage will automatically detect and prefer local binaries in `.\tools\` or `.\bin\` before falling back to system `PATH`.
 
 ---
 

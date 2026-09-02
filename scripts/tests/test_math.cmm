@@ -1,0 +1,7 @@
+main() {
+    bits32 a = 15;
+    bits32 b = 5;
+    bits32 c = a + b * 2 - 4 / 2;
+    foreign "C" printf(c);
+    return c;
+}
